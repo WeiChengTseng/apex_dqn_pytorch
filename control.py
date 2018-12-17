@@ -3,7 +3,6 @@ import time
 
 keyboard = Controller()
 
-
 def release():
     keyboard.release(Key.left)
     keyboard.release(Key.right)
