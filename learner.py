@@ -66,6 +66,7 @@ class Learner():
     def __init__(self):
         self.device = args.device
         self.batch_size = args.batch_size
+
         self.lr = args.lr
         self.history_size = args.history_size
         self.replay_size = args.replay_size
@@ -76,6 +77,7 @@ class Learner():
         self.update_cycle = args.update_cycle
         self.log_interval = args.log_interval
         self.actor_num = args.actor_num
+
         self.alpha = 0.7
         self.beta_init = 0.4
         self.beta = self.beta_init
@@ -83,9 +85,11 @@ class Learner():
         self.e = 1e-6
         self.dis = 0.99
         self.start_epoch = 0
+
         self.mainDQN = DQN(self.history_size, self.hidden_size, self.action_size).to(self.device)
         self.targetDQN = DQN(self.history_size, self.hidden_size, self.action_size).to(self.device)
         self.update_target_model()
+        
         self.optimizer = optim.Adam(self.mainDQN.parameters(), lr=args.lr)
         self.replay_memory = deque(maxlen=self.replay_size)
         self.priority = deque(maxlen=self.replay_size)

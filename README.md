@@ -33,7 +33,7 @@ Learner: Model saved in  /home/sungwonlyu/experiment/alphachu/180801225440_256_0
 Run pika.exe and actor in virtual monitor. Also need to do this 10 times with varying epsilons. 
 ```
 DISPLAY=:99 wine pika.exe
-DISPLAY=:99 python actor.py --load-model 180801225440_256_0.0001_4_84_129_32_1_30000_1500_10 --epsilon 0.9 --wepsilon 0.9
+DISPLAY=:99 pythonw actor.py --epsilon 0.9 --wepsilon 0.9
 ```
 
 ## Test

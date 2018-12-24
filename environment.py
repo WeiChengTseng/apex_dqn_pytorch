@@ -66,7 +66,6 @@ class Env:
                 return True
             else:
                 return False
-
         else:
             self.preprocess_img(resize=True)
             gameset_match = cv2.matchTemplate(self.mask, self.polepoint, eval('cv2.TM_CCOEFF_NORMED'))
@@ -106,15 +105,9 @@ class Env:
         if np.sum(self.mask[-2:, :]) > 1000:
             if np.sum(self.mask[-2:, :215]) > np.sum(self.mask[-2:, 215:]):
                 self.win = True
-                # if save_dir:
-                #     new_dir = save_dir[:-6] + '-1.png'
-                #     os.rename(save_dir, new_dir)
                 return True, False
             else:
                 self.win = False
-                # if save_dir:
-                #     new_dir = save_dir[:-6] + '-2.png'
-                #     os.rename(save_dir, new_dir)
                 return True, False
         else:
             return False, jump
